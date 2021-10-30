@@ -4,9 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Heatmap from './Heatmap';
-import CovidState from './CovidState';
-import VaccineState from './VaccineState';
-import CloseState from './CloseState';
+import ResultState from './ResultState';
 import SelectState from './SelectState';
 import Statistics from './Statistics';
 
