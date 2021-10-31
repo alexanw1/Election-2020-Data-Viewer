@@ -31,7 +31,7 @@ class myChart extends Component {
         };
     }
     componentDidMount(){
-        axios.get(`https://election2020api.herokuapp.com/api/results`).then(results => {
+        axios.get(`https://election2020api.herokuapp.com/api/results/`).then(results => {
             axios.get('https://election2020api.herokuapp.com/api/states/').then(states => {
                 var output = []
                 var country_data = []
