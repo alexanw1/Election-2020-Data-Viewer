@@ -46,17 +46,11 @@ class SelectState extends Component {
    
     handleChange (event) {
         this.getResults(event.value)
-        
-        //axios.get(`https://election2020api.herokuapp.com/api/states/?stateabrv=${event.value}`).then(response => {
-       //     globalVar.move_center({data: response.data, zoom: 8})
-       // })
-        //if (globalVar.app_state === "case"){
-            axios.get(`https://election2020api.herokuapp.com/api/results/?statename=${event.label}`).then(response => {
-                this.setState({selected: event.value, data: response.data, updated: true})
-            })
-       // }else {
-            //this.setState({counties: []})
-       // }
+    
+        axios.get(`https://election2020api.herokuapp.com/api/results/?statename=${event.label}`).then(response => {
+            this.setState({selected: event.value, data: response.data, updated: true})
+        })
+
     }
 
     render () {

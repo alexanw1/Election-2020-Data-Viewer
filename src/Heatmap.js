@@ -43,7 +43,6 @@ class myChart extends Component {
                     });
                 });
                 
-                // globalVar.update_stats({});
                 var demvotes = 0
                 var repvotes = 0
                 var othervotes = 0
