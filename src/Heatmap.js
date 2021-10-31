@@ -31,14 +31,13 @@ class myChart extends Component {
         };
     }
     componentDidMount(){
-        globalVar.clear_state();
         axios.get(`https://election2020api.herokuapp.com/api/results`).then(results => {
             axios.get('https://election2020api.herokuapp.com/api/states/').then(states => {
                 var output = []
                 var country_data = []
                 states.data.forEach((state) => {
                     results.data.forEach((resultData) => {
-                        if (state.stateid === resultData.stateid){
+                        if (state.stateabrv === resultData.stateid){
                             country_data.push({demvotes: resultData.demvotes, repvotes: resultData.repvotes, othervotes: resultData.othervotes})
                         }
                     });
@@ -55,7 +54,7 @@ class myChart extends Component {
                     othervotes += data.othervotes
                 });
 
-                globalVar.update_stats({title: "U.S 2020 Election Results", "Democratic Votes": demvotes.toLocaleString(), "Republican Votes": repvotes.toLocaleString(), "Other Votes": othervotes.toLocaleString()})
+                globalVar.update_stats({title: "U.S. 2020 Election Results", "Democratic Votes": demvotes.toLocaleString(), "Republican Votes": repvotes.toLocaleString(), "Other Votes": othervotes.toLocaleString()})
 
             });
         });

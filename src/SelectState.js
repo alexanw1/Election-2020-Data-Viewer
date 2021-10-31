@@ -11,18 +11,17 @@ class SelectState extends Component {
             selectRef: null,
             selectOptions: [],
             selected: "",
-            counties: [],
             updated: false,
             clear: false
         }
     }
-
+    
     async getOptions(){
         const res = await axios.get('https://election2020api.herokuapp.com/api/states/')
         const data = res.data
     
         const options = data.map(d => ({
-          "value" : d.stateabvr,
+          "value" : d.stateabrv,
           "label" : d.statename
         }))
         this.setState({selectOptions: options})
@@ -34,7 +33,9 @@ class SelectState extends Component {
 
 
     getResults(stateabrv){
+        console.log("hi")
         axios.get(`https://election2020api.herokuapp.com/api/states/?stateabrv=${stateabrv}`).then(state => {
+            console.log(state.data)
             axios.get(`https://election2020api.herokuapp.com/api/results/?statename=${state.data[0].statename}`).then(results => {
                 var Resultdata = results.data[0]
                 globalVar.update_stats({title: state.data[0].statename, "Democratic Votes": Resultdata.demvotes.toLocaleString(), "Republican Votes": Resultdata.repvotes.toLocaleString(), "Other Votes": Resultdata.othervotes.toLocaleString()})
@@ -43,7 +44,20 @@ class SelectState extends Component {
     }
 
    
-
+    handleChange (event) {
+        this.getResults(event.value)
+        
+        //axios.get(`https://election2020api.herokuapp.com/api/states/?stateabrv=${event.value}`).then(response => {
+       //     globalVar.move_center({data: response.data, zoom: 8})
+       // })
+        //if (globalVar.app_state === "case"){
+            axios.get(`https://election2020api.herokuapp.com/api/results/?statename=${event.label}`).then(response => {
+                this.setState({selected: event.value, data: response.data, updated: true})
+            })
+       // }else {
+            //this.setState({counties: []})
+       // }
+    }
 
     render () {
         if (this.state.selectRef != null){
@@ -107,7 +121,7 @@ class SelectState extends Component {
         this.getOptions()
 
         globalVar.clear_state = () => {
-            this.setState({clear: true, counties: []})
+            this.setState({clear: true})
         }
     }
 }
