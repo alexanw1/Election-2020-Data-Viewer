@@ -10,13 +10,13 @@ function App() {
         </div>
         <div className="row">
           <div className="column-heatmap" style={{backgroundColor: "#aaa"}}>
-            <div id="heatmap"></div>
+            <div id="chart"></div>
           </div>
           <div className="column-statistics" style={{backgroundColor: "#4287f5"}}>
             <div id="statistics"></div>
           </div>
-          <div className="column-statistics" style={{backgroundColor: "#000000"}}>
-            <div id="statistics2"></div>
+          <div className="column-heatmap" style={{backgroundColor: "#aaa"}}>
+            <div id="chart2"></div>
           </div>
 
         </div>

@@ -51,8 +51,8 @@ class myChart extends Component {
         return (
             <>
             <Chart
-            width={'500px'}
-            height={'300px'}
+            width={'100%'}
+            height={'100%'}
             chartType="PieChart"
             loader={<div>Loading Chart</div>}
             data={[
@@ -62,22 +62,8 @@ class myChart extends Component {
             ['Other', this.state.othervotes]
             ]}
             options={{
-            title: 'Votes in the 2020 Election'
-            }}
-            rootProps={{ 'data-testid': '1' }} />
-            <Chart
-            width={'500px'}
-            height={'300px'}
-            chartType="PieChart"
-            loader={<div>Loading Chart</div>}
-            data={[
-            ['Type of Votes', 'Number of Votes'],
-            ['Democrat', this.state.demvotes],
-            ['Republican', this.state.repvotes],
-            ['Other', this.state.othervotes]
-            ]}
-            options={{
-            title: 'Votes in the 2020 Election'
+            title: 'Votes in the 2020 Election',
+            legend: 'bottom'
             }}
             rootProps={{ 'data-testid': '1' }} />
             </>

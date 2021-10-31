@@ -3,11 +3,11 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import Heatmap from './Heatmap';
+import Chart from './Chart';
+import Chart2  from './Chart2';
 import ResultState from './ResultState';
 import SelectState from './SelectState';
 import Statistics from './Statistics';
-import Statistics2 from './Statistics2';
 
 
 ReactDOM.render(
@@ -18,18 +18,18 @@ ReactDOM.render(
 );
 
 ReactDOM.render(
-  <Heatmap />,
-  document.getElementById('heatmap')
+  <Chart />,
+  document.getElementById('chart')
+);
+
+ReactDOM.render(
+  <Chart2 />,
+  document.getElementById('chart2')
 );
 
 ReactDOM.render(
   <Statistics />,
   document.getElementById('statistics')
-);
-
-ReactDOM.render(
-  <Statistics2 />,
-  document.getElementById('statistics2')
 );
 
 ReactDOM.render(
