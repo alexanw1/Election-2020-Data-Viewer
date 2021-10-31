@@ -16,7 +16,6 @@ class ResultState extends Component {
     globalVar.clear_state()
     axios.get(`https://election2020api.herokuapp.com/api/results`).then(results => {
           axios.get('https://election2020api.herokuapp.com/api/states/').then(states => {
-              //var output = []
               var country_data = []
               states.data.forEach((state) => {
                   results.data.forEach((resultData) => {
@@ -26,7 +25,6 @@ class ResultState extends Component {
                   });
               });
               
-              // globalVar.update_stats({});
               var demvotes = 0
               var repvotes = 0
               var othervotes = 0
@@ -36,16 +34,19 @@ class ResultState extends Component {
                   repvotes += data.repvotes
                   othervotes += data.othervotes
               });
-
-              globalVar.update_stats({title: "U.S. 2020 Election Results", "Democratic Votes": demvotes.toLocaleString(), "Republican Votes": repvotes.toLocaleString(), "Other Votes": othervotes.toLocaleString()})
-
+              var total_data = []
+              total_data.push({demvotes: demvotes, repvotes: repvotes, othervotes: othervotes})
+              globalVar.update_stats({title: "U.S. Totals", "Democratic Votes": demvotes.toLocaleString(), "Republican Votes": repvotes.toLocaleString(), "Other Votes": othervotes.toLocaleString()})
+              globalVar.updateResults(total_data)
+              //globalVar.updateResults2(total_data)
           });
+          
       });
   }
 
   render () {
     return (
-        <button className='button' onClick={this.handleClick}>Results</button>
+        <button className='button' onClick={this.handleClick}>Reset Stats and Charts</button>
     )
   }
 } 

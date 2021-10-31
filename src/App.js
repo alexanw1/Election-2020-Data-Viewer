@@ -12,7 +12,7 @@ function App() {
           <div className="column-heatmap" style={{backgroundColor: "#aaa"}}>
             <div id="chart"></div>
           </div>
-          <div className="column-statistics" style={{backgroundColor: "#4287f5"}}>
+          <div className="column-statistics" style={{backgroundColor: "black"}}>
             <div id="statistics"></div>
           </div>
           <div className="column-heatmap" style={{backgroundColor: "#aaa"}}>

@@ -34,9 +34,8 @@ class ergergegreg extends Component {
                     repvotes += data.repvotes
                     othervotes += data.othervotes
                 });
-                //this.state.push(demvotes, repvotes, othervotes)
                 this.setState({demvotes: demvotes, repvotes: repvotes, othervotes: othervotes})
-                globalVar.update_stats({title: "U.S. 2020 Election Results", "Democratic Votes": demvotes.toLocaleString(), "Republican Votes": repvotes.toLocaleString(), "Other Votes": othervotes.toLocaleString()})
+                globalVar.update_stats({title: "U.S. Totals", "Democratic Votes": demvotes.toLocaleString(), "Republican Votes": repvotes.toLocaleString(), "Other Votes": othervotes.toLocaleString()})
 
             });
         });
@@ -59,8 +58,13 @@ class ergergegreg extends Component {
             ['Other', this.state.othervotes]
             ]}
             options={{
-                title: 'Votes in the 2020 Election',
-                legend: 'bottom'
+                title: 'Votes in the 2020 Election by State',
+                legend: 'bottom',
+                backgroundColor: '#66a8ff',
+                titleTextStyle:{
+                    fontSize: 25,
+                },
+                is3D: true
             }}
             rootProps={{ 'data-testid': '1' }} />
             </>

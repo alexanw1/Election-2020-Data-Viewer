@@ -48,6 +48,7 @@ class SelectState extends Component {
         axios.get(`https://election2020api.herokuapp.com/api/results/?statename=${event.label}`).then(response => {
             this.setState({selected: event.value, data: response.data, updated: true, demvotes: response.data[0].demvotes})
             globalVar.updateResults(response.data)
+           // globalVar.updateResults2(response.data)
         })
         
 
@@ -105,6 +106,7 @@ class SelectState extends Component {
                     styles={customStyles}
                     onChange={this.handleChange.bind(this)}
                     options={this.state.selectOptions}
+                    placeholder='Select a State'
                     />
                 </div>
             </div>

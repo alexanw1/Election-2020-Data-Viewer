@@ -86,7 +86,8 @@
 }
 
 .dropdown-selector {
-  float: left;
+  
+  margin: auto;
   width: 400px;
   height: 40px;
 }
