@@ -37,7 +37,6 @@ class ergergegreg extends Component {
                     othervotes += data.othervotes
                 });
                 var randomNumber = Math.floor((Math.random() * 466));
-                console.log(puns.puns[randomNumber])
                 this.setState({demvotes: demvotes, repvotes: repvotes, othervotes: othervotes})
                 globalVar.update_stats({title: "U.S. Totals", "Democratic Votes": demvotes.toLocaleString(), "Republican Votes": repvotes.toLocaleString(), "Other Votes": othervotes.toLocaleString(), "Random Pun": puns.puns[randomNumber]})
 
