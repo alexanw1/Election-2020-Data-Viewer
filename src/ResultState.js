@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 import axios from 'axios'
 import globalVar from './globals'
-
+import puns from './puns'
 class ResultState extends Component {
   constructor () {
     super()
@@ -36,7 +36,8 @@ class ResultState extends Component {
               });
               var total_data = []
               total_data.push({demvotes: demvotes, repvotes: repvotes, othervotes: othervotes})
-              globalVar.update_stats({title: "U.S. Totals", "Democratic Votes": demvotes.toLocaleString(), "Republican Votes": repvotes.toLocaleString(), "Other Votes": othervotes.toLocaleString()})
+              var randomNumber = Math.floor((Math.random() * 466));
+              globalVar.update_stats({title: "U.S. Totals", "Democratic Votes": demvotes.toLocaleString(), "Republican Votes": repvotes.toLocaleString(), "Other Votes": othervotes.toLocaleString(), "Random Pun": puns.puns[randomNumber]})
               globalVar.updateResults(total_data)
               //globalVar.updateResults2(total_data)
           });

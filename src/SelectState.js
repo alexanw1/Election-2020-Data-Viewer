@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Select from 'react-select'
 import axios from 'axios'
 import globalVar from './globals'
-
+import puns from './puns'
 class SelectState extends Component {
     constructor (props) {
         super(props)
@@ -36,7 +36,8 @@ class SelectState extends Component {
         axios.get(`https://election2020api.herokuapp.com/api/states/?stateabrv=${stateabrv}`).then(state => {
             axios.get(`https://election2020api.herokuapp.com/api/results/?statename=${state.data[0].statename}`).then(results => {
                 var Resultdata = results.data[0]
-                globalVar.update_stats({title: state.data[0].statename, "Democratic Votes": Resultdata.demvotes.toLocaleString(), "Republican Votes": Resultdata.repvotes.toLocaleString(), "Other Votes": Resultdata.othervotes.toLocaleString()})
+                var randomNumber = Math.floor((Math.random() * 466));
+                globalVar.update_stats({title: state.data[0].statename, "Democratic Votes": Resultdata.demvotes.toLocaleString(), "Republican Votes": Resultdata.repvotes.toLocaleString(), "Other Votes": Resultdata.othervotes.toLocaleString(), "Random Pun": puns.puns[randomNumber]})
             })
         })
     }

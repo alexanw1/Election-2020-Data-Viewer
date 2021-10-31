@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import axios from 'axios'
 
 import globalVar from './globals'
+import puns from './puns'
+
 class ergergegreg extends Component {
     constructor () {
         super()
@@ -34,8 +36,10 @@ class ergergegreg extends Component {
                     repvotes += data.repvotes
                     othervotes += data.othervotes
                 });
+                var randomNumber = Math.floor((Math.random() * 466));
+                console.log(puns.puns[randomNumber])
                 this.setState({demvotes: demvotes, repvotes: repvotes, othervotes: othervotes})
-                globalVar.update_stats({title: "U.S. Totals", "Democratic Votes": demvotes.toLocaleString(), "Republican Votes": repvotes.toLocaleString(), "Other Votes": othervotes.toLocaleString()})
+                globalVar.update_stats({title: "U.S. Totals", "Democratic Votes": demvotes.toLocaleString(), "Republican Votes": repvotes.toLocaleString(), "Other Votes": othervotes.toLocaleString(), "Random Pun": puns.puns[randomNumber]})
 
             });
         });
@@ -46,6 +50,7 @@ class ergergegreg extends Component {
     render() {
         return (
             <>
+            
             <Chart
             width={'100%'}
             height={'100%'}
