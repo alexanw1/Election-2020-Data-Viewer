@@ -33,9 +33,7 @@ class SelectState extends Component {
 
 
     getResults(stateabrv){
-        //console.log("hi")
         axios.get(`https://election2020api.herokuapp.com/api/states/?stateabrv=${stateabrv}`).then(state => {
-            //console.log(state.data)
             axios.get(`https://election2020api.herokuapp.com/api/results/?statename=${state.data[0].statename}`).then(results => {
                 var Resultdata = results.data[0]
                 globalVar.update_stats({title: state.data[0].statename, "Democratic Votes": Resultdata.demvotes.toLocaleString(), "Republican Votes": Resultdata.repvotes.toLocaleString(), "Other Votes": Resultdata.othervotes.toLocaleString()})
@@ -48,7 +46,6 @@ class SelectState extends Component {
         this.getResults(event.value)
     
         axios.get(`https://election2020api.herokuapp.com/api/results/?statename=${event.label}`).then(response => {
-            console.log(response.data[0].demvotes)
             this.setState({selected: event.value, data: response.data, updated: true, demvotes: response.data[0].demvotes})
             globalVar.updateResults(response.data)
         })

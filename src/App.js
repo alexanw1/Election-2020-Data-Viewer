@@ -15,6 +15,9 @@ function App() {
           <div className="column-statistics" style={{backgroundColor: "#4287f5"}}>
             <div id="statistics"></div>
           </div>
+          <div className="column-statistics" style={{backgroundColor: "#000000"}}>
+            <div id="statistics2"></div>
+          </div>
 
         </div>
       </header>

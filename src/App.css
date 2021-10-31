@@ -50,9 +50,8 @@
   display: flex;
   float: left;
   height: 80vh;
-  width: 65%;
+  width: 31%;
   min-height: 400px;
-  min-width: 700px;
   border:5px solid rgb(107, 108, 124);
 }
 

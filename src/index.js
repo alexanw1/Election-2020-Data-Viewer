@@ -7,6 +7,7 @@ import Heatmap from './Heatmap';
 import ResultState from './ResultState';
 import SelectState from './SelectState';
 import Statistics from './Statistics';
+import Statistics2 from './Statistics2';
 
 
 ReactDOM.render(
@@ -24,6 +25,11 @@ ReactDOM.render(
 ReactDOM.render(
   <Statistics />,
   document.getElementById('statistics')
+);
+
+ReactDOM.render(
+  <Statistics2 />,
+  document.getElementById('statistics2')
 );
 
 ReactDOM.render(
